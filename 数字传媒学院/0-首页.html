@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>数字传媒学院官网</title>
+		<link rel="stylesheet" href="首页.css" />
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css" />
+	</head>
+	<body>
+		<div class="topHeader">
+			<img src="img/logo.png" alt="" />
+			<p>数字传媒学院</p>
+		</div>
+		<div class="bigBBox">
+			<div class="menu">
+				<div class="menu-con">
+					<ul>
+						<li>
+							<a href="0-首页.html">首页</a>
+						</li>
+						<li>
+							<a href="">学院概况</a>
+							<ol>
+								<li><a href="1-学院简介.html">学院简介</a></li>
+								<li><a href="">学院领导</a></li>
+								<li><a href="">学术委员会</a></li>
+								<li><a href="4-师资队伍.html">师资队伍</a></li>
+							</ol>
+						</li>
+						<li>
+							<a href="">学科专业</a>
+							<ol>
+								<li><a href="3-播音与主持专业介绍.html">专业介绍</a></li>
+								<li><a href="">学科建设</a></li>
+								<li><a href="">专业设置</a></li>
+							</ol>
+						</li>
+						<li>
+							<a href="">人才培养</a>
+							<ol>
+								<li><a href="">本科教育</a></li>
+								<li><a href="">研究生教育</a></li>
+								<li><a href="">继续教育</a></li>
+								<li><a href="">辅修专业</a></li>
+							</ol>
+						</li>
+						<li>
+							<a href="">学术研究</a>
+							<ol>
+								<li><a href="">学术动态</a></li>
+								<li><a href="">学术交流</a></li>
+								<li><a href="">科研成果</a></li>
+								<li><a href="">研究中心</a></li>
+							</ol>
+						</li>
+						<li>
+							<a href="">社会服务</a>
+							<ol>
+								<li><a href="">行业培训</a></li>
+								<li><a href="">创制中心</a></li>
+							</ol>
+						</li>
+						<li>
+							<a href="">党建工作</a>
+							<ol>
+								<li><a href="">组织设置</a></li>
+								<li><a href="">规章制度</a></li>
+								<li><a href="">党风廉政</a></li>
+								<li><a href="">支部建设</a></li>
+							</ol>
+						</li>
+						<li>
+							<a href="">团学工作</a>
+							<ol>
+								<li><a href="">组织机构</a></li>
+								<li><a href="">规章制度</a></li>
+								<li><a href="">团学动态</a></li>
+								<li><a href="">资料下载</a></li>
+							</ol>
+						</li>
+						<li>
+							<a href="">教工之家</a>
+							<ol>
+								<li><a href="">工会教代会</a></li>
+								<li><a href="">制度建设</a></li>
+								<li><a href="">活动风采</a></li>
+							</ol>
+						</li>
+						<li>
+							<a href="">下载中心</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="container-lunbotu">
+				<div class="carousel">
+					<img src="./img/1.jpg">
+					<img src="./img/2.jpg">
+					<img src="./img/3.jpg">
+					<img src="./img/4.jpg">
+					<img src="./img/5.jpg">
+					<img src="./img/6.jpg">
+				</div>
+				<div class="indicator">
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+			</div>
+		</div>
+		<script>
+			let currentIndex = 0;
+			const images = document.querySelectorAll('.carousel img');
+			const indicators = document.querySelectorAll('.indicator span');
+			let intervalId; // 用于存储定时器ID
+
+			function showImage(index) {
+				images.forEach((img, i) => {
+					img.classList.toggle('active', i === index);
+					indicators[i].classList.toggle('active', i === index);
+				});
+			}
+
+			function startCarousel() {
+				intervalId = setInterval(() => {
+					currentIndex = (currentIndex + 1) % images.length;
+					showImage(currentIndex);
+				}, 2500);
+			}
+
+			function stopCarousel() {
+				clearInterval(intervalId);
+			}
+
+			// 开始自动播放
+			startCarousel();
+
+			// 鼠标进入图片时停止播放
+			images.forEach(img => {
+				img.addEventListener('mouseenter', stopCarousel);
+			});
+
+			// 鼠标离开图片时开始播放
+			images.forEach(img => {
+				img.addEventListener('mouseleave', startCarousel);
+			});
+
+			// 添加点击指示器切换图片的功能
+			indicators.forEach((indicator, index) => {
+				indicator.addEventListener('click', () => {
+					currentIndex = index; // 更新当前索引
+					showImage(currentIndex);
+				});
+			});
+		</script>
+		<div class="news">
+			<div class="news-title">
+				<p>新闻公告</p>
+				<hr style="width: 90%;" />
+			</div>
+			<div class="news-con">
+				<div class="box">
+					<a href="./2-分享会.html"><img src="./img/分享会2.png" alt="" /></a>
+					<a href="./2-分享会.html">贵阳信息科技学院数字传媒学院读书分享会</a>
+				</div>
+				<div class="box">
+					<a href="https://www.gyiist.edu.cn/subject_article.jsp?id=28108&itemId=820"><img
+							src="./img/趣味运动会.png" alt="" /></a>
+					<a
+						href="https://www.gyiist.edu.cn/subject_article.jsp?id=28108&itemId=820">数字传媒学院趣味运动会｜疯狂趣味，快乐运动无极限</a>
+				</div>
+				<div class="box">
+					<a href="https://www.gyiist.edu.cn/subject_article.jsp?id=28106&itemId=822"><img
+							src="./img/主题讲座.png" alt="" /></a>
+					<a
+						href="https://www.gyiist.edu.cn/subject_article.jsp?id=28106&itemId=822">数字传媒学院开展“如何搞好班级建设，助力学风建设”主题讲座</a>
+				</div>
+			</div>
+		
+		</div>
+		<!-- 快速通道 -->
+		<div class="quickLinkBox">
+		    <div class="quickLinkCenter">
+		        <div class="quickLinkTitle">
+		            <span>快速通道</span>
+		        </div>
+		        <div class="quickLinkCont">
+		            <a href="http://tmis.gyiist.edu.cn" target="_blank">
+		                <p class="icon_4"></p><span>教务系统</span>
+		            </a>
+		            <a href="https://ehall.gyiist.edu.cn" target="_blank">
+		                <p class="icon_3"></p><span>服务大厅</span>
+		            </a>
+		            <a href="https://www.gyiist.edu.cn/list.jsp?cItemId=869&amp;itemId=844" target="_blank">
+		                <p class="icon_6"></p><span>图书馆</span>
+		            </a>
+		            <a href="https://www.gyiist.edu.cn/zs" target="_blank">
+		                <p class="icon_2"></p><span>招生信息网</span>
+		            </a>
+		            <a href="https://mdcgzu.jysd.com" target="_blank">
+		                <p class="icon_4"></p><span>就业信息网</span>
+		            </a>
+		            <a href="https://www.gyiist.edu.cn/list.jsp?cItemId=651&amp;itemId=649" target="_blank">
+		                <p class="icon_5"></p><span>人事聘用</span>
+		            </a>
+		        </div>
+		    </div>
+		</div>
+		<!-- 底部 -->
+		<div class="bottom">
+			<div class="bottomCont">
+				<div class="bottomLeft">
+					地址：贵州省贵阳市贵安新区花溪大学城思雅路8号
+					<br> 邮编：550025 &nbsp;&nbsp; 邮箱：bgs@gyiist.edu.cn
+					<br> 电话（传真）：0851-88921856
+					<br> ICP备案号：<a href="http://beian.miit.gov.cn" target="blank" style="color:#fff;">黔ICP备20002667号
+					</a>
+				</div>
+				<div class="bottomMid">
+					<img src="./img/logo.png" alt="" />
+				</div>
+				<div class="bottomRight">
+					<img src="./img/weixin.png" alt="" />
+				</div>
+			</div>
+
+		</div>
+	</body>
+</html>

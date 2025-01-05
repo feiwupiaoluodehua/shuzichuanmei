@@ -1,0 +1,63 @@
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			.huodongBox {
+				width: 1480px;
+				height: auto;
+			}
+
+			.huodong {
+				width: 1200px;
+				height: auto;
+				display: flex;
+				align-self: center;
+				justify-self: center;
+				flex-direction: column;
+			}
+
+			.titleBox {
+				width: 1200px;
+				text-align: center;
+				font-size: 20px;
+				color: #2b2b2b;
+				font-weight: bold;
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+
+			.contentBox {
+				margin-top: 20px;
+
+
+			}
+
+			.contentBox>h3 {
+				font-family: '宋体';
+				font-size: 30px;
+				margin-bottom: 20px;
+				text-align: center;
+			}
+
+			.contentBox>p {
+				font-family: '仿宋';
+				font-size: 25px;
+				text-indent: 2em;
+			}
+
+			.hdimgBox {
+				width: 1200px;
+				height: auto;
+				display: flex;
+				/* 添加这一行，让其成为flex容器 */
+				justify-content: center;
+				/* 水平居中 */
+				align-items: center;
+				/* 垂直居中 */
+				margin-bottom: 10px;
+			}
+
+			.bottom {
+				width: 100%;
+			}

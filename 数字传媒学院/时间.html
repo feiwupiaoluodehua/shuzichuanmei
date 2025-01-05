@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>当前时间</title>
+    <style type="text/css">
+        #curTime {
+            padding-top: 100px;
+            height: 350px;
+            width: 100%;
+            font-size: 100px;
+            color: #FF0000;
+            line-height: 120px;
+            font-weight: bold;
+            text-align: center;
+            background-color: cornsilk;
+            font-family: "microsoft yahei";
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="curTime"></h1>
+    <script type="text/javascript">
+        // 获取用于显示时间的元素对象
+        var curTimeObj = document.getElementById('curTime');
+
+        // 设置定时器，每1000毫秒（即1秒）更新一次时间显示
+        setInterval(function () {
+            var curTime = new Date();
+
+            // 获取年份
+            var year = curTime.getFullYear();
+            // 获取月份，注意月份是从0开始计数，所以要加1得到实际月份
+            var month = curTime.getMonth() + 1;
+            // 获取日期
+            var day = curTime.getDate();
+            // 获取星期几
+            var weekday = getWeekday(curTime.getDay());
+            // 获取小时
+            var hour = curTime.getHours();
+            // 获取分钟
+            var minute = curTime.getMinutes();
+            // 获取秒
+            var second = curTime.getSeconds();
+
+            // 更新curTimeObj元素的内容，展示当前时间信息
+            curTimeObj.innerHTML = year + '年' + month + '月' + day + '号 ' + weekday + '<br>' + hour + ':' + minute + ':' + second;
+        }, 1000);
+
+        // 根据传入的数字返回对应的中文星期表示
+        function getWeekday(number) {
+            switch (number) {
+                case 0:
+                    return '星期天';
+                case 1:
+                    return '星期一';
+                case 2:
+                    return '星期二';
+                case 3:
+                    return '星期三';
+                case 4:
+                    return '星期四';
+                case 5:
+                    return '星期五';
+                case 6:
+                    return '星期六';
+            }
+        }
+    </script>
+</body>
+
+</html>

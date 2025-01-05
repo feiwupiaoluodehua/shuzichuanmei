@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			div {
+				border: 1px solid red;
+			}
+
+			a {
+				text-decoration: none;
+				color: black;
+			}
+
+
+			.news {
+				width: 1400px;
+				height: auto;
+				background-color: #FFFDF9;
+
+				box-sizing: border-box;
+				/* 添加此属性，确保边框等尺寸计算在内，避免撑破布局 */
+			}
+
+			.news-title {
+				font-size: 25px;
+				line-height: 30px;
+				/* 适当调小行高，更紧凑些 */
+				padding-left: 15px;
+				text-align: center;
+			}
+
+
+
+			.news-con {
+				height: auto;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				justify-content: space-around;
+
+				box-sizing: border-box;
+				/* 同样添加此属性 */
+			}
+
+			/* 水平线虚线 */
+			.dashed-line {
+				border-style: dashed;
+				border-width: 1px;
+				border-color: black;
+				margin-top: 1px;
+				width: 75%;
+				margin: auto;
+			}
+
+			.box {
+				width: 400px;
+				height: 300px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				box-sizing: border-box;
+				/* 添加此属性 */
+				padding: 10px;
+				/* 添加内边距，让内部内容显示更合理，避免紧贴边界 */
+				text-align: center;
+				font-size: 22px;
+			}
+
+			.box>a>img {
+				width: 350px;
+				transition: transform 0.3s ease;
+				/* 添加过渡效果，持续时间0.3秒，缓动函数为ease */
+
+			}
+
+			.box>a>img:hover {
+				transform: scale(1.1);
+				/* 鼠标悬停时图片放大1.1倍 */
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="news">
+			<div class="news-title">
+				<p>新闻公告</p>
+				<hr style="width: 90%;" />
+			</div>
+			<div class="news-con">
+				<div class="box">
+					<a href="./2-分享会.html"><img src="./img/分享会2.png" alt="" /></a>
+					<a href="./2-分享会.html">贵阳信息科技学院数字传媒学院读书分享会</a>
+				</div>
+				<div class="box">
+					<a href="https://www.gyiist.edu.cn/subject_article.jsp?id=28108&itemId=820"><img
+							src="./img/趣味运动会.png" alt="" /></a>
+					<a
+						href="https://www.gyiist.edu.cn/subject_article.jsp?id=28108&itemId=820">数字传媒学院趣味运动会｜疯狂趣味，快乐运动无极限</a>
+				</div>
+				<div class="box">
+					<a href="https://www.gyiist.edu.cn/subject_article.jsp?id=28106&itemId=822"><img
+							src="./img/主题讲座.png" alt="" /></a>
+					<a
+						href="https://www.gyiist.edu.cn/subject_article.jsp?id=28106&itemId=822">数字传媒学院开展“如何搞好班级建设，助力学风建设”主题讲座</a>
+				</div>
+			</div>
+
+		</div>
+	</body>
+
+</html>

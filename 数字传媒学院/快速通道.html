@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>5-快速通道</title>
+	<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css" />
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			max-width: 1920px;
+			margin: 0 auto;
+			background-color: #dcdcdc;
+		}
+		
+		a{
+			text-decoration: none;
+		}
+
+		.quickAccessBox{
+			min-width: 1200px;
+			height: 250px;
+			background-color: #E8F2FE;
+		}
+		.quickAccessCenter{
+			width: 1200px;
+			margin: 0 auto;
+			padding: 15px 5px;
+		}
+		.quickAccessTitle{
+			text-align: center;
+			position: relative;
+		}
+		.quickAccessTitle>span {
+			display: inline-block;
+			font-size: 20px;
+			color: #0062AD;
+			font-weight: bold;
+			letter-spacing: 2px;
+			padding-left: 12px;
+			padding-right: 12px;
+			background-color: #E8F2FE;
+			position: relative;
+			z-index: 3;
+		}
+		
+		.quickAccessTitle:before {
+			content: "";
+			border-bottom: solid 1px #DEDFE2;
+			display: block;
+			top: 15px;
+			position: relative;
+			z-index: 0;
+		}
+		
+		.quickAccessCont {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-top: 20px;
+		}
+		
+		.quickAccessCont>a {
+			width: 150px;
+			height: 120px;
+			text-align: center;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		
+		.quickAccessCont>a:hover {
+			text-decoration: none;
+		}
+		
+		.quickAccessCont>a>p {
+			display: inline-block;
+			width: 72px;
+			height: 72px;
+			border-radius: 50%;
+			border: 1px #fff solid;
+			background-color: #fff;
+			background-position: center center;
+			background-repeat: no-repeat;
+			margin: 0 0 10px;
+			box-sizing: border-box;
+		}
+		
+		.quickAccessCont>a:hover p {
+			background-color: #0062AD;
+			border: 8px #CCE2F2 solid;
+		}
+		
+		.quickAccessCont>a:hover>span {
+			color: #0062AD;
+		}
+		
+		.quickAccessCont>a>span {
+			font: 18px/22px "微软雅黑";
+			color: #4f4f4f;
+		}
+		
+		/* Icon classes remain the same */
+	</style>
+</head>
+<body>
+	<!-- 快速通道 -->
+	<div class="quickAccessBox">
+		<div class="quickAccessCenter">
+			<div class="quickAccessTitle">
+				<span><i class="fa fa-link" style="font-size: 20px;"></i> 快速通道</span>
+			</div>
+			<div class="quickAccessCont">
+			     <a href="http://tmis.gyiist.edu.cn" target="_blank"><p class="icon_4"></p><span>教务系统</span></a>
+			     <a href="https://ehall.gyiist.edu.cn" target="_blank"><p class="icon_3"></p><span>服务大厅</span></a>
+			     <a href="https://www.gyiist.edu.cn/list.jsp?cItemId=869&amp;itemId=844" target="_blank"><p class="icon_6"></p><span>图书馆</span></a>
+			     <a href="https://www.gyiist.edu.cn/zs" target="_blank"><p class="icon_2"></p><span>招生信息网</span></a>
+			     <a href="https://mdcgzu.jysd.com" target="_blank"><p class="icon_4"></p><span>就业信息网</span></a>
+			     <a href="https://www.gyiist.edu.cn/list.jsp?cItemId=651&amp;itemId=649"

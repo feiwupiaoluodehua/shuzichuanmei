@@ -1,0 +1,454 @@
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				max-width: 1480px;
+				/* 这里使用与你的页面宽度相同的值 */
+				margin: 0 auto;
+				/* overflow-x: hidden; */
+			}
+
+			div {
+				/* border: 1px solid; */
+			}
+
+			.topHeader {
+				width: 1480px;
+				height: 140px;
+				background-color: #892020;
+				display: flex;
+				justify-content: space-around;
+			}
+
+			.topHeader img {
+				width: 600px;
+
+			}
+
+			.topHeader p {
+				font-family: fangsong;
+				font-size: 80px;
+				line-height: 140px;
+				display: flex;
+				justify-content: flex-end;
+				top: 20px;
+				color: #fff;
+			}
+
+			/* 重置默认的列表样式和链接样式 */
+			li {
+				list-style: none;
+			}
+
+			a {
+				text-decoration: none;
+				color: black;
+			}
+
+			/* 菜单样式开始 */
+			.menu {
+			       width: 1480px;
+			       height: 70px;
+			       background-color: #fff;
+			       /* 盒子阴影，增加立体感 */
+			       box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+			   }
+			
+			.menu-con {
+			       width: 1200px;
+			       height: 100%;
+			       /* 让菜单容器在父元素中水平居中 */
+			       margin: 0 auto;
+			   }
+			
+			.menu-con ul {
+			       position: relative;
+			       display: flex;
+			       justify-content: space-around;
+			       width: 100%;
+			   }
+			
+			.menu-con ul>li {
+			       width: 100%;
+			       height: 100%;
+			       position: relative; /* 给一级菜单li添加相对定位，为二级菜单的层级关系做基础 */
+			   }
+			
+			.menu-con ul>li>a {
+			       display: block;
+			       width: 100%;
+			       height: 100%;
+			       line-height: 70px;
+			       text-align: center;
+			       cursor: pointer;
+			       color: black;
+			       /* 默认字体颜色 */
+			       transition: color 0.3s;
+			       /* 平滑过渡字体颜色变化 */
+			   }
+			
+			.menu-con ul>li:hover>a {
+			       color: #fff;
+			       /* 鼠标悬停时字体颜色变为白色 */
+			       background-color: #892020;
+			       /* 当鼠标悬停在一级菜单上时，背景颜色变为#892020 */
+			   }
+			
+			   /* 二级菜单初始设置为隐藏 */
+			.menu-con ul>li ol {
+			       display: block;
+			       width: 100%;
+			       background-color: #fff;
+			       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+			       opacity: 0;
+			       height: 0;
+			       overflow: hidden;
+			       position: absolute; /* 将二级菜单设置为绝对定位，脱离文档流并基于一级菜单li定位 */
+			       top: 100%; /* 定位在一级菜单下方 */
+			       left: 0;
+			       z-index: 11; /* 提高二级菜单整体的层级，比轮播图及其内部元素层级都高 */
+			   }
+			
+			.menu-con ul>li ol li {
+			       height: 50px;
+			       border-bottom: 1px solid;
+			       position: relative; /* 给二级菜单里的li也添加相对定位 */
+			       z-index: 12; /* 进一步提高二级菜单里li元素的层级 */
+			   }
+			
+			.menu-con ul>li ol li a {
+			       display: block;
+			       width: 100%;
+			       height: 100%;
+			       line-height: 50px;
+			       text-align: center;
+			       cursor: pointer;
+			   }
+			
+			   /* 当鼠标悬停在一级菜单的li元素上时，显示对应的二级菜单 */
+			.menu-con ul>li:hover ol {
+			       opacity: 1;
+			       height: auto;
+			       transition: all 0.6s;
+			   }
+			
+			   /* 鼠标放到二级菜单的li元素时改变背景颜色，增强交互效果 */
+			.menu-con ul>li ol li:hover {
+			       background-color: rgba(0, 0, 0, 0.02);
+			   }
+			   /* 菜单样式结束 */
+			
+			   /* 轮播图开始 */
+			.container-lunbotu {
+			       width: 100%;
+			       margin: auto;
+			       overflow: hidden;
+			       position: relative;
+			       z-index: 5; /* 给轮播图容器设置一个相对较小的层级，比二级菜单的层级低 */
+			   }
+			
+			.carousel {
+			       width: 100%;
+			       height: 530px;
+			       /* 根据您的图片大小调整 */
+			       overflow: hidden;
+			       position: relative;
+			   }
+			
+			.carousel img {
+			       width: 100%;
+			       height: 100%;
+			       object-fit: cover;
+			       display: none;
+			       /* 隐藏所有图片，将通过JavaScript显示 */
+			   }
+			
+			.carousel img.active {
+			       display: block;
+			       /* 仅显示激活的图片 */
+			   }
+			
+			.indicator {
+			       position: absolute;
+			       bottom: 10px;
+			       left: 50%;
+			       transform: translateX(-50%);
+			       display: flex;
+			       z-index: 6; /* 给轮播图指示器也设置合适层级 */
+			   }
+			
+			.indicator span {
+			       width: 10px;
+			       height: 10px;
+			       background-color: #fff;
+			       border-radius: 50%;
+			       margin: 0 5px;
+			       cursor: pointer;
+			       transition: background-color 0.3s;
+			   }
+			
+			.indicator span.active {
+			       background-color: rgba(255, 255, 255,.3);
+			       /* 激活的指示器点颜色 */
+			   }
+			   /* 轮播图结束 */
+
+			a {
+				text-decoration: none;
+				color: black;
+			}
+
+			.news {
+				width: 1480px;
+				height: auto;
+				background-color: #FFFDF9;
+
+				box-sizing: border-box;
+				/* 添加此属性，确保边框等尺寸计算在内，避免撑破布局 */
+			}
+
+			.news-title {
+				font-size: 25px;
+				line-height: 30px;
+				/* 适当调小行高，更紧凑些 */
+				padding-left: 15px;
+				text-align: center;
+			}
+
+
+
+			.news-con {
+				height: auto;
+				display: flex;
+				flex-direction: row;
+				justify-content: center;
+				justify-content: space-around;
+
+				box-sizing: border-box;
+				/* 同样添加此属性 */
+			}
+
+			/* 水平线虚线 */
+			.dashed-line {
+				border-style: dashed;
+				border-width: 1px;
+				border-color: black;
+				margin-top: 1px;
+				width: 75%;
+				margin: auto;
+			}
+
+			.box {
+				width: 400px;
+				height: 300px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				box-sizing: border-box;
+				/* 添加此属性 */
+				padding: 10px;
+				/* 添加内边距，让内部内容显示更合理，避免紧贴边界 */
+				text-align: center;
+				font-size: 22px;
+			}
+
+			.box>a>img {
+				width: 350px;
+				transition: transform 0.3s ease;
+				/* 添加过渡效果，持续时间0.3秒，缓动函数为ease */
+
+			}
+
+			.box>a>img:hover {
+				transform: scale(1.1);
+				/* 鼠标悬停时图片放大1.1倍 */
+			}
+
+			.dashed-line {
+				border-style: dashed;
+				border-width: 1px;
+				border-color: black;
+				margin-top: 1px;
+				width: 75%;
+				margin: auto;
+			}
+
+			/* 快速通道 */
+			.quickLinkBox {
+				width: 1480px;
+				height: 250px;
+				background-color: #FFFDF9;
+			}
+
+			.quickLinkCenter {
+				width: 1200px;
+				margin: 0 auto;
+				padding: 15px 5px;
+			}
+
+			.quickLinkTitle {
+				text-align: center;
+				position: relative;
+			}
+
+			.quickLinkTitle>span {
+				display: inline-block;
+				font-size: 20px;
+				color: #0062AD;
+				font-weight: bold;
+				letter-spacing: 2px;
+				padding-left: 12px;
+				padding-right: 12px;
+				background-color: #E8F2FE;
+				position: relative;
+				z-index: 3;
+			}
+
+			.quickLinkTitle:before {
+				content: "";
+				border-bottom: solid 1px #DEDFE2;
+				display: block;
+				top: 15px;
+				position: relative;
+				z-index: 0;
+			}
+
+			.quickLinkCont {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 20px;
+			}
+
+			.quickLinkCont>a {
+				width: 150px;
+				height: 120px;
+				text-align: center;
+				/* background-color: rgba(255, 255, 255,.5); */
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.quickLinkCont>a:hover {
+				text-decoration: none;
+			}
+
+			.quickLinkCont>a>p {
+				display: inline-block;
+				width: 72px;
+				height: 72px;
+				border-radius: 50%;
+				border: 1px #fff solid;
+				background-color: #fff;
+				background-position: center center;
+				background-repeat: no-repeat;
+				margin: 0 0 10px;
+				box-sizing: border-box;
+			}
+
+			.quickLinkCont>a:hover p {
+				background-color: #0062AD;
+				border: 8px #CCE2F2 solid;
+			}
+
+			.quickLinkCont>a:hover>span {
+				color: #0062AD;
+			}
+
+			.quickLinkCont>a>span {
+				font: 18px/22px "微软雅黑";
+				color: #4f4f4f;
+			}
+
+			.quickLinkCont>a>.icon_1 {
+				background-image: url('./img/icon_1.png');
+			}
+
+			.quickLinkCont>a:hover>.icon_1 {
+				background-image: url('./img/icon_1_hover.png');
+			}
+
+			.quickLinkCont>a>.icon_2 {
+				background-image: url('./img/icon_2.png');
+			}
+
+			.quickLinkCont>a:hover>.icon_2 {
+				background-image: url('./img/icon_2_hover.png');
+			}
+
+			.quickLinkCont>a>.icon_3 {
+				background-image: url('./img/icon_3.png');
+			}
+
+			.quickLinkCont>a:hover>.icon_3 {
+				background-image: url('./img/icon_3_hover.png');
+			}
+
+			.quickLinkCont>a>.icon_4 {
+				background-image: url('./img/icon_4.png');
+			}
+
+			.quickLinkCont>a:hover>.icon_4 {
+				background-image: url('./img/icon_4_hover.png');
+			}
+
+			.quickLinkCont>a>.icon_5 {
+				background-image: url('./img/icon_5.png');
+			}
+
+			.quickLinkCont>a:hover>.icon_5 {
+				background-image: url('./img/icon_5_hover.png');
+			}
+
+			.quickLinkCont>a>.icon_6 {
+				background-image: url('./img/icon_6.png');
+			}
+
+			.quickLinkCont>a:hover>.icon_6 {
+				background-image: url('./img/icon_6_hover.png');
+			}
+
+			.quickLinkCont>a>.icon_7 {
+				background-image: url('./img/icon_7.png');
+			}
+
+			.quickLinkCont>a:hover>.icon_7 {
+				background-image: url('./img/icon_7_hover.png');
+			}
+
+			.bottom {
+				height: 150px;
+				background-color: #892020;
+				width: 1480px;
+				padding-top: 10px;
+			}
+
+			.bottomCont {
+				display: flex;
+				justify-content: space-around;
+				flex-direction: row;
+				margin-top: 30px;
+			}
+
+			.bottom>.bottomCont>.bottomLeft {
+				/* background-color: rgba(255, 255, 255, .2); */
+				width: 450px;
+				line-height: 1.5em;
+				padding: 10px;
+				color: #fff;
+			}
+
+			.bottom>.bottomCont>.bottomMid>img {
+				width: 330px;
+
+			}
+
+			.bottom>.bottomCont>.bottomRight>img {
+				width: 100px;
+				height: auto;
+			}
